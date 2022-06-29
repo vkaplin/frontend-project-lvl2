@@ -8,19 +8,20 @@ const program = new Command();
 const getSortedKey = (obj) => _.keys(obj).sort();
 
 function getFileData(filepath) {
+  let fileData;
   const resolvePath = path.resolve(process.cwd(), filepath);
   const file = fs.readFileSync(resolvePath);
-  return file;
+  if(/\.json$/.test(filepath)) {
+    fileData = JSON.parse(file);
+  }
+  return fileData;
 }
 
 const getDifference = (filepath1, filepath2) => {
   let result = '';
-  const file1 = getFileData(filepath1);
-  const file2 = getFileData(filepath2);
-
-  const jsonFile1 = JSON.parse(file1);
-  const jsonFile2 = JSON.parse(file2);
-
+  const jsonFile1 = getFileData(filepath1);
+  const jsonFile2 = getFileData(filepath2);
+  
   const sortedKeys1 = getSortedKey(jsonFile1);
   const sortedKeys2 = getSortedKey(jsonFile2);
 
