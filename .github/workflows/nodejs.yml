@@ -1,8 +1,5 @@
-name: GitHub Actions 
-# Trigger the workflow on push or pull request
-on:
-  - push
-  - pull_request
+name: GitHub Actions eslint
+on: [push]
 
 jobs:
   build:
@@ -21,5 +18,3 @@ jobs:
         
       - name: eslin
         run: make lint
-      
-       - run: make test
