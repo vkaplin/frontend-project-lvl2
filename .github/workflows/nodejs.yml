@@ -12,8 +12,8 @@ jobs:
     strategy:
       # Node versions list
       matrix:
-        node-version: '18.x'
-
+        node-version: [14.x]
+        
     steps:
       - run: make install
       - run: make lint
