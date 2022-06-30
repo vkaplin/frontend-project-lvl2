@@ -49,7 +49,7 @@ const genDiff = (filepath1, filepath2) => {
       }
     }
   }
-  result += '}'
+  result += '}';
   return result;
 };
 
