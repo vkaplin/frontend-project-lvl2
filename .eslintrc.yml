@@ -9,7 +9,7 @@ extends:
   - 'plugin:jest/recommended'
 
 parserOptions:
-  ecmaVerdion: latest
+  ecmaVersion: 2020
 
 rules:
   no-console: 0 

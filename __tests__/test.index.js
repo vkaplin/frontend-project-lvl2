@@ -1,11 +1,15 @@
-import gendiff from '../bin/gendiff.js';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+import { jest } from '@jest/globals';
+import gendiff from '../src/index.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 test('gendiff', () => {
-  expect(gendiff( __dirname/__fixtures__/file1.json, __dirname/__fixtures__/file2.json))
-  .toBe(`- follow: false
-  host: hexlet.io
-- proxy: 123.234.53.22
-- timeout: 50
-+ timeout: 20
-+ verbose: true`);
+  expect(gendiff('file1.json', 'file2.json')).toBe(readFile('comparison.json.txt'));
 });
