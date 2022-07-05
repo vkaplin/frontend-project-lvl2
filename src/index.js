@@ -1,29 +1,12 @@
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
 import _ from 'lodash';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import parsers from './parsers.js';
 
 const getSortedKey = (obj) => _.keys(obj).sort();
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
-
-function getFileData(filepath) {
-  let fileData;
-  //  const resolvePath = path.resolve(process.cwd(), filepath);
-  const file = readFile(filepath);
-  if (/\.json$/.test(filepath)) {
-    fileData = JSON.parse(file);
-  }
-  return fileData;
-}
 
 const genDiff = (filepath1, filepath2) => {
   let result = '{\n';
-  const jsonFile1 = getFileData(filepath1);
-  const jsonFile2 = getFileData(filepath2);
+  const jsonFile1 = parsers(filepath1);
+  const jsonFile2 = parsers(filepath2);
 
   const sortedKeys1 = getSortedKey(jsonFile1);
   const sortedKeys2 = getSortedKey(jsonFile2);
