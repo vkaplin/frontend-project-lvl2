@@ -43,13 +43,4 @@ const stylish = (data) => {
   return iter(data, 1);
 };
 
-const formater = (data, format) => {
-  switch (format) {
-    case 'stylish':
-      return stylish(data);
-    default:
-      return '%';
-  }
-};
-
-export default formater;
+export default stylish;

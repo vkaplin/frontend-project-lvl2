@@ -12,3 +12,6 @@ Checking yml and yaml files:
 
 stylish
 [![asciicast](https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh.svg)](https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh)
+
+plan
+[![asciicast](https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk.svg)](https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk)

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import parsers from './parsers.js';
-import formater from './formater.js';
+import formater from './formaters/index.js';
 
 const getSortedKey = (obj1, obj2) => _.uniq(_.flatten([_.keys(obj1), _.keys(obj2)])).sort();
 

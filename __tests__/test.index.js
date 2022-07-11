@@ -1,6 +1,7 @@
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { expect, test } from '@jest/globals';
 import gendiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,4 +16,8 @@ test('gendiff file1.json, file2.json', () => {
 
 test('gendiff file1.yml, file2.yml', () => {
   expect(gendiff('file1.yml', 'file2.yml')).toBe(readFile('comparison.stylish.txt'));
+});
+
+test('gendiff file1.json, file2.json, plan', () => {
+  expect(gendiff('file1.json', 'file2.json', 'plan')).toBe(readFile('comparison.plan.txt'));
 });
