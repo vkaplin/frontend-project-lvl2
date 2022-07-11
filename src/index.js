@@ -1,38 +1,47 @@
 import _ from 'lodash';
 import parsers from './parsers.js';
+import formater from './formater.js';
 
-const getSortedKey = (obj) => _.keys(obj).sort();
+const getSortedKey = (obj1, obj2) => _.uniq(_.flatten([_.keys(obj1), _.keys(obj2)])).sort();
 
-const genDiff = (filepath1, filepath2) => {
-  let result = '{\n';
-  const jsonFile1 = parsers(filepath1);
-  const jsonFile2 = parsers(filepath2);
+const genDiff = (filepath1, filepath2, format = 'stylish') => {
+  const file1 = parsers(filepath1);
+  const file2 = parsers(filepath2);
 
-  const sortedKeys1 = getSortedKey(jsonFile1);
-  const sortedKeys2 = getSortedKey(jsonFile2);
+  const getDifferens = (obj1, obj2) => {
+    const keys = getSortedKey(obj1, obj2);
+    const resultObj = keys.map((key) => {
+      const keyIsExistObj1 = _.has(obj1, key);
+      const keyIsExistObj2 = _.has(obj2, key);
+      let newLine;
+      if (keyIsExistObj1 && keyIsExistObj2) {
+        const value1 = obj1[key];
+        const value2 = obj2[key];
 
-  for (let i = 0; i < sortedKeys1.length; i += 1) {
-    for (let k = 0; k < sortedKeys2.length; k += 1) {
-      const key1 = sortedKeys1[i];
-      const key2 = sortedKeys2[k];
-      if (key1 === key2) {
-        if (jsonFile1[key1] === jsonFile2[key2]) {
-          result += `    ${key1}: ${jsonFile1[key1]}\n`;
+        if (typeof (value1) === 'object' && typeof (value2) === 'object') {
+          newLine = { name: key, type: 'nested', children: getDifferens(value1, value2) };
+        } else if (value1 === value2) {
+          newLine = { name: key, type: 'unchanged', value: value1 };
         } else {
-          result += `  - ${key1}: ${jsonFile1[key1]}\n`;
-          result += `  + ${key2}: ${jsonFile2[key2]}\n`;
+          newLine = {
+            name: key,
+            type: 'changed',
+            firstValue: value1,
+            secondValue: value2,
+          };
         }
-        i += 1;
-      } else if (key1 < key2) {
-        result += `  - ${key1}: ${jsonFile1[key1]}\n`;
-        i += 1;
-        k -= 1;
-      } else {
-        result += `  + ${key2}: ${jsonFile2[key2]}\n`;
+      } else if (keyIsExistObj1) {
+        newLine = { name: key, type: 'removed', value: obj1[key] };
+      } else if (keyIsExistObj2) {
+        newLine = { name: key, type: 'added', value: obj2[key] };
       }
-    }
-  }
-  result += '}';
+      return newLine;
+    });
+    return resultObj;
+  };
+
+  const differenceData = getDifferens(file1, file2);
+  const result = formater(differenceData, format);
   return result;
 };
 

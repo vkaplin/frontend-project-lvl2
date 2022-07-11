@@ -8,3 +8,7 @@ Checking json files:
 
 Checking yml and yaml files:
 [![asciicast](https://asciinema.org/a/JfI02KsBuGhwP6ucpYiH7hwbf.svg)](https://asciinema.org/a/JfI02KsBuGhwP6ucpYiH7hwbf)
+
+
+stylish
+[![asciicast](https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh.svg)](https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh)
