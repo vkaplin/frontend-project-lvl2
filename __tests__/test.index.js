@@ -27,5 +27,5 @@ test('gendiff file1.json, file2.json, json', () => {
 });
 
 test('gendiff file1.json, file2.yml, " "', () => {
-  expect(gendiff('file1.json', 'file2.yml', ' ')).toBe("");
+  expect(gendiff('file1.json', 'file2.yml', ' ')).toBe('');
 });

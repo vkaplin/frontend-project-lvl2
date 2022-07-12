@@ -6,24 +6,13 @@ const json = (data) => {
         case 'added':
         case 'removed':
         case 'unchanged':
-          obj[el.name] = {
-            type: el.type,
-            value: el.value,
-          };
+          obj[el.name] = { type: el.type, value: el.value };
           break;
         case 'nested':
-          obj[el.name] = {
-            type: el.type,
-            value: el.value,
-            children: iter(el.children),
-          };
+          obj[el.name] = { type: el.type, value: el.value, children: iter(el.children) };
           break;
         case 'changed':
-          obj[el.name] = {
-            type: el.type,
-            firstValue: el.firstValue,
-            secondValue: el.secondValue,
-          };
+          obj[el.name] = { type: el.type, firstValue: el.firstValue, econdValue: el.secondValue };
           break;
         default:
           break;

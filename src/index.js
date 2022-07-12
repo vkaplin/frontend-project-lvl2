@@ -11,10 +11,8 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const getDifferens = (obj1, obj2) => {
     const keys = getSortedKey(obj1, obj2);
     const resultObj = keys.map((key) => {
-      const keyIsExistObj1 = _.has(obj1, key);
-      const keyIsExistObj2 = _.has(obj2, key);
       let newLine;
-      if (keyIsExistObj1 && keyIsExistObj2) {
+      if (_.has(obj1, key) && _.has(obj2, key)) {
         const value1 = obj1[key];
         const value2 = obj2[key];
 
@@ -30,9 +28,9 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
             secondValue: value2,
           };
         }
-      } else if (keyIsExistObj1) {
+      } else if (_.has(obj1, key)) {
         newLine = { name: key, type: 'removed', value: obj1[key] };
-      } else if (keyIsExistObj2) {
+      } else if (_.has(obj2, key)) {
         newLine = { name: key, type: 'added', value: obj2[key] };
       }
       return newLine;
