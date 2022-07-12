@@ -14,6 +14,5 @@ program
   .action((filepath1, filepath2) => {
     const result = genDiff(filepath1, filepath2, program.opts().format);
     console.log(result);
-  });
-
-program.parse(process.argv);
+  })
+  .parse(process.argv);
