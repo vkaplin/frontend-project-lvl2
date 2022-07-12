@@ -15,3 +15,6 @@ stylish
 
 plan
 [![asciicast](https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk.svg)](https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk)
+
+json
+[![asciicast](https://asciinema.org/a/CjCgo6aXL1L6rXiwxZbcJGxN1.svg)](https://asciinema.org/a/CjCgo6aXL1L6rXiwxZbcJGxN1)

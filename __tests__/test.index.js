@@ -21,3 +21,7 @@ test('gendiff file1.yml, file2.yml', () => {
 test('gendiff file1.json, file2.json, plan', () => {
   expect(gendiff('file1.json', 'file2.json', 'plan')).toBe(readFile('comparison.plan.txt'));
 });
+
+test('gendiff file1.json, file2.json, json', () => {
+  expect(gendiff('file1.json', 'file2.json', 'json')).toBe(readFile('comparison.json.txt'));
+});
