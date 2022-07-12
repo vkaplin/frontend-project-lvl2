@@ -12,7 +12,7 @@ const json = (data) => {
           obj[el.name] = { type: el.type, value: el.value, children: iter(el.children) };
           break;
         case 'changed':
-          obj[el.name] = { type: el.type, firstValue: el.firstValue, econdValue: el.secondValue };
+          obj[el.name] = { type: el.type, firstValue: el.firstValue, secondValue: el.secondValue };
           break;
         default:
           break;
