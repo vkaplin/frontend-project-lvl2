@@ -10,15 +10,14 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 function getFileData(filepath) {
-  let fileData;
-  //  const resolvePath = path.resolve(process.cwd(), filepath);
   const file = readFile(filepath);
   if (/\.json$/.test(filepath)) {
-    fileData = JSON.parse(file);
-  } else if (/\.yml/.test(filepath) || /\.yaml/.test(filepath)) {
-    fileData = yaml.load(file);
+    return JSON.parse(file);
   }
-  return fileData;
+  if (/\.yml/.test(filepath) || /\.yaml/.test(filepath)) {
+    return yaml.load(file);
+  }
+  return null;
 }
 
 export default getFileData;
