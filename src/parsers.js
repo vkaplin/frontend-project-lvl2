@@ -13,6 +13,7 @@ function getFileData(filepath) {
   if (!filepath) {
     return null;
   }
+
   const file = readFile(filepath);
   if (/\.json$/.test(filepath)) {
     return JSON.parse(file);
