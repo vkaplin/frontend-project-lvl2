@@ -10,6 +10,9 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 function getFileData(filepath) {
+  if (!filepath) {
+    return null;
+  }
   const file = readFile(filepath);
   if (/\.json$/.test(filepath)) {
     return JSON.parse(file);

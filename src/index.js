@@ -7,6 +7,9 @@ const getSortedKey = (obj1, obj2) => _.uniq(_.flatten([_.keys(obj1), _.keys(obj2
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const file1 = parsers(filepath1);
   const file2 = parsers(filepath2);
+  if (!file1 || !file2) {
+    return null;
+  }
 
   const getDifferens = (obj1, obj2) => {
     const keys = getSortedKey(obj1, obj2);

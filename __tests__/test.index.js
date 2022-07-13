@@ -18,6 +18,10 @@ test('gendiff file1.yml, file2.yml', () => {
   expect(gendiff('file1.yml', 'file2.yml')).toBe(readFile('comparison.stylish.txt'));
 });
 
+test('empty path', () => {
+  expect(gendiff()).toBe(null);
+});
+
 test('gendiff file1.json, file2.json, plan', () => {
   expect(gendiff('file1.json', 'file2.json', 'plan')).toBe(readFile('comparison.plan.txt'));
 });
