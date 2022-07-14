@@ -10,7 +10,7 @@ const getValue = (value) => {
   return value;
 };
 
-const plan = (data) => {
+const plain = (data) => {
   const iter = (value, sourcePath) => {
     const lines = value.map((el) => {
       const newPath = [...sourcePath, el.name];
@@ -35,4 +35,4 @@ const plan = (data) => {
   return iter(data, []);
 };
 
-export default plan;
+export default plain;

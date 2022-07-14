@@ -47,7 +47,7 @@ https://asciinema.org/a/JfI02KsBuGhwP6ucpYiH7hwbf
 Форматирование stylish
 https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh
 
-Форматирование plan text
+Форматирование plain text
 https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk
 
 Форматирование json
