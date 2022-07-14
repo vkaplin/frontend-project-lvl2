@@ -35,19 +35,20 @@ Options:
   -h, --help           display help for command
 ```
 
-
-Checking json files:
+### Примеры работы программы
+Сравнение двух файлов json
 https://asciinema.org/a/oT8FnGWYcwm7NFJQ1ygJESGAE
 
-Checking yml and yaml files:
+Сравнение двух файлов yml
 https://asciinema.org/a/JfI02KsBuGhwP6ucpYiH7hwbf
 
 
-stylish
+#### Примеры форматирование вывода работы программы
+Форматирование stylish
 https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh
 
-plan
+Форматирование plan text
 https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk
 
-json
+Форматирование json
 https://asciinema.org/a/CjCgo6aXL1L6rXiwxZbcJGxN1
