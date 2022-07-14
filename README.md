@@ -37,17 +37,17 @@ Options:
 
 
 Checking json files:
-[![asciicast](https://asciinema.org/a/oT8FnGWYcwm7NFJQ1ygJESGAE.svg)](https://asciinema.org/a/oT8FnGWYcwm7NFJQ1ygJESGAE)
+https://asciinema.org/a/oT8FnGWYcwm7NFJQ1ygJESGAE
 
 Checking yml and yaml files:
-[![asciicast](https://asciinema.org/a/JfI02KsBuGhwP6ucpYiH7hwbf.svg)](https://asciinema.org/a/JfI02KsBuGhwP6ucpYiH7hwbf)
+https://asciinema.org/a/JfI02KsBuGhwP6ucpYiH7hwbf
 
 
 stylish
-[![asciicast](https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh.svg)](https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh)
+https://asciinema.org/a/ltjFMOAk8SHw6t9OdM4qyYfOh
 
 plan
-[![asciicast](https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk.svg)](https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk)
+https://asciinema.org/a/QkpS7Qmg0ImqCbCSDUhVHvfXk
 
 json
-[![asciicast](https://asciinema.org/a/CjCgo6aXL1L6rXiwxZbcJGxN1.svg)](https://asciinema.org/a/CjCgo6aXL1L6rXiwxZbcJGxN1)
+https://asciinema.org/a/CjCgo6aXL1L6rXiwxZbcJGxN1
