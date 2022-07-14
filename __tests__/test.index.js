@@ -21,8 +21,8 @@ test('empty path', () => {
   expect(gendiff()).toBe(null);
 });
 
-test('gendiff file1.json, file2.json, plan', () => {
-  expect(gendiff('file1.json', 'file2.json', 'plan')).toBe(readFile('comparison.plan.txt'));
+test('gendiff file1.json, file2.json, plain', () => {
+  expect(gendiff('file1.json', 'file2.json', 'plain')).toBe(readFile('comparison.plain.txt'));
 });
 
 test('gendiff file1.json, file2.json, json', () => {
