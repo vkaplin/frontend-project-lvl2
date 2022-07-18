@@ -2,7 +2,8 @@ import _ from 'lodash';
 import parsers from './parsers.js';
 import formater from './formaters/index.js';
 
-const getSortedKey = (obj1, obj2) => [..._.uniq(_.flatten([_.keys(obj1), _.keys(obj2)]))].sort();
+const getKeys = (obj1, obj2) => _.uniq(_.flatten([_.keys(obj1), _.keys(obj2)]));
+const getSortedKey = (obj1, obj2) => _.sortBy(getKeys(obj1, obj2));
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const file1 = parsers(filepath1);

@@ -6,8 +6,8 @@ const getValue = (value, depth) => {
   if (!_.isObject(value)) {
     return value;
   }
-
-  const lines = _.keys(value).sort().map((node) => `${getIdent(depth + 2)}  ${node}: ${getValue(value[node], depth + 2)}`);
+  const getSortedValue = (obj) => _.sortBy(_.keys(obj));
+  const lines = getSortedValue(getSortedValue).map((node) => `${getIdent(depth + 2)}  ${node}: ${getValue(value[node], depth + 2)}`);
   const innerValue = lines.join('\n');
   return `{\n${innerValue}\n${getIdent(depth + 1)}}`;
 };
