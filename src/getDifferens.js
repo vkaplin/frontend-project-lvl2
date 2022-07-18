@@ -26,10 +26,7 @@ const getDifferens = (obj1, obj2) => {
     if (_.has(obj1, key)) {
       return { name: key, type: 'removed', value: obj1[key] };
     }
-    if (_.has(obj2, key)) {
-      return { name: key, type: 'added', value: obj2[key] };
-    }
-    return null;
+    return { name: key, type: 'added', value: obj2[key] };
   });
   return resultObj;
 };

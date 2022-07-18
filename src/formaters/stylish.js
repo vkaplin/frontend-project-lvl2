@@ -14,23 +14,22 @@ const getValue = (value, depth) => {
 
 const makeLine = (depth, symbol, key, value) => `${getIdent(depth)}${symbol} ${key}: ${getValue(value, depth)}`;
 
+const types = {
+  added: '+',
+  removed: '-',
+  unchanged: ' ',
+};
+
 const stylish = (data) => {
   const iter = (value, depth) => {
     const lines = value.map((el) => {
-      switch (el.type) {
-        case 'added':
-          return makeLine(depth, '+', el.name, el.value);
-        case 'removed':
-          return makeLine(depth, '-', el.name, el.value);
-        case 'unchanged':
-          return makeLine(depth, ' ', el.name, el.value);
-        case 'nested':
-          return makeLine(depth, ' ', el.name, `${iter(el.children, depth + 2)}`);
-        case 'changed':
-          return `${makeLine(depth, '-', el.name, el.firstValue)}\n${makeLine(depth, '+', el.name, el.secondValue)}`;
-        default:
-          return '';
+      if (el.type === 'nested') {
+        return makeLine(depth, ' ', el.name, `${iter(el.children, depth + 2)}`);
       }
+      if (el.type === 'changed') {
+        return `${makeLine(depth, '-', el.name, el.firstValue)}\n${makeLine(depth, '+', el.name, el.secondValue)}`;
+      }
+      return makeLine(depth, types[el.type], el.name, el.value);
     });
 
     return [
