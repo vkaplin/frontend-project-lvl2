@@ -20,19 +20,21 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
 
         if (typeof (value1) === 'object' && typeof (value2) === 'object') {
           return { name: key, type: 'nested', children: getDifferens(value1, value2) };
-        } else if (value1 === value2) {
-          return { name: key, type: 'unchanged', value: value1 };
-        } else {
-          return {
-            name: key,
-            type: 'changed',
-            firstValue: value1,
-            secondValue: value2,
-          };
         }
-      } else if (_.has(obj1, key)) {
+        if (value1 === value2) {
+          return { name: key, type: 'unchanged', value: value1 };
+        }
+        return {
+          name: key,
+          type: 'changed',
+          firstValue: value1,
+          secondValue: value2,
+        };
+      }
+      if (_.has(obj1, key)) {
         return { name: key, type: 'removed', value: obj1[key] };
-      } else if (_.has(obj2, key)) {
+      }
+      if (_.has(obj2, key)) {
         return { name: key, type: 'added', value: obj2[key] };
       }
       return null;
