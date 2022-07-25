@@ -15,8 +15,8 @@ const resultPlain = readFile('comparison.plain.txt');
 const resultJson = readFile('comparison.json.txt');
 
 test.each(extensions)('.add(%s)', (extension) => {
-  const fileAfter = `file1.${extension}`;
-  const fileBefore = `file2.${extension}`;
+  const fileAfter = getFixturePath(`file1.${extension}`);
+  const fileBefore = getFixturePath(`file2.${extension}`);
 
   expect(gendiff(fileAfter, fileBefore)).toBe(resultStylish);
   expect(gendiff(fileAfter, fileBefore, 'stylish')).toBe(resultStylish);
@@ -24,12 +24,13 @@ test.each(extensions)('.add(%s)', (extension) => {
   expect(gendiff(fileAfter, fileBefore, 'json')).toBe(resultJson);
 });
 
+
 test('gendiff file1.json, file2.yml, " "', () => {
-  expect(() => gendiff('file1.json', 'file2.yml', ' ')).toThrowError();
+  expect(() => gendiff(getFixturePath('file1.json'), getFixturePath('file2.yml'), ' ')).toThrowError();
 });
 test('gendiff txt file', () => {
-  expect(() => gendiff('file1.txt', 'file2.txt')).toThrowError();
+  expect(() => gendiff(getFixturePath('file1.txt'), getFixturePath('file2.txt'))).toThrowError();
 });
 test('empty path', () => {
-  expect(() => gendiff()).toThrowError('filePath пустой');
+  expect(() => gendiff()).toThrowError('filePath empty');
 });

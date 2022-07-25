@@ -7,7 +7,7 @@ const formater = (data, format) => {
     case 'stylish': return stylish(data);
     case 'plain': return plain(data);
     case 'json': return json(data);
-    default: throw new Error(`format ${format} не поддерживается`);
+    default: throw new Error(`format ${format} not support`);
   }
 };
 

@@ -5,7 +5,7 @@ function parsers(fileType, file) {
     case 'yaml': return yaml.load(file);
     case 'yml': return yaml.load(file);
     case 'json': return JSON.parse(file);
-    default: throw new Error(`fileType - ${fileType} не известен.`);
+    default: throw new Error(`fileType - ${fileType} not support.`);
   }
 }
 

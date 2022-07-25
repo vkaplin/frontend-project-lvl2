@@ -8,13 +8,13 @@ import getDifferens from './getDifferens.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const getFixturePath = (filename) => path.resolve(process.cwd(), __dirname, '..', '__fixtures__', filename);
-const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
+const getPath = (filename) => path.resolve(process.cwd(), __dirname, filename);
+
+const readFile = (filename) => fs.readFileSync(getPath(filename), 'utf-8');
+
 const getFileType = (filename) => path.extname(filename).slice(1);
+
 const getFileData = (filePath) => {
-  if (!filePath) {
-    throw new Error('filePath пустой');
-  }
   const fileType = getFileType(filePath);
   const file = readFile(filePath);
   return parsers(fileType, file);

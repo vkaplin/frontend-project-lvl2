@@ -15,6 +15,7 @@ const plain = (data) => {
     const lines = value.map((el) => {
       const newPath = [...sourcePath, el.name];
       const path = newPath.join('.');
+      
       switch (el.type) {
         case 'added':
           return `Property '${path}' was added with value: ${getValue(el.value)}`;
