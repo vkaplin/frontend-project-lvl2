@@ -24,7 +24,6 @@ test.each(extensions)('.add(%s)', (extension) => {
   expect(gendiff(fileAfter, fileBefore, 'json')).toBe(resultJson);
 });
 
-
 test('gendiff file1.json, file2.yml, " "', () => {
   expect(() => gendiff(getFixturePath('file1.json'), getFixturePath('file2.yml'), ' ')).toThrowError();
 });
