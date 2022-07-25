@@ -31,5 +31,5 @@ test('gendiff txt file', () => {
   expect(() => gendiff(getFixturePath('file1.txt'), getFixturePath('file2.txt'))).toThrowError();
 });
 test('empty path', () => {
-  expect(() => gendiff()).toThrowError('The \"path\" argument must be of type string. Received undefined');
+  expect(() => gendiff()).toThrowError('The "path" argument must be of type string. Received undefined');
 });
