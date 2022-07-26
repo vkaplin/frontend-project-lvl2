@@ -9,10 +9,10 @@ CLI программа позволяющая вычислить отличия 
 Поддерфиваемый вывод результата сравнения - text, stylish, json.
 
 ## Установка
-Установите Node.js последней версии в систему.
-Склонируйте репозиторий. (git@github.com:vkaplin/frontend-project-lvl2.git)
-Выполнить установку зависимостей (make install)
-Запустить сравнение файлов
+Установите Node.js последней версии в систему. 
+Склонируйте репозиторий. (git@github.com:vkaplin/frontend-project-lvl2.git) 
+Выполнить установку зависимостей (make install) 
+Запустить сравнение файлов 
 
 ```
 $ git clone git@github.com:vkaplin/frontend-project-lvl2.git)
